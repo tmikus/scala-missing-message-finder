@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    .row
+        .col-md-12
+            h1= title
+
+            if (isNewConfig)
+                .alert.alert-warning(role="alert") Your config is not set. Please configure the values and save them.
+
+            if (success)
+                .alert.alert-success(role="alert") Config successfully saved.
+
+            form(method="POST")
+                .form-group
+                    label(for="catoFrontendPath") "cato-frontend" path
+                    input#catoFrontendPath.form-control(type="text", placeholder="cato-frontend path", name="catoFrontendPath", value= catoFrontendPath)
+                button.btn.btn-primary(type="submit") Save configuration
+                a.btn.btn-default(href="/") Back

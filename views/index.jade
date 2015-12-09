@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    .row
+        .col-md-12
+            h1= title
+
+    .row
+        .col-md-12
+            table.table
+                thead
+                    tr
+                        th #
+                        th Message key
+                        th File paths
+                tbody
+                    each value, index in missingMessages
+                        tr
+                            td= index + 1
+                            td= value.key
+                            td
+                                each path in value.paths
+                                    span= path
+                                    br
